@@ -1,0 +1,61 @@
+#include<stdio.h>
+#include<conio.h>
+void main()
+{
+int a[10],b[10],c[10],m,n,i,j,k;
+clrscr();
+printf("\n\t\tMerging of two arrays");
+printf("\nEnter the order of first array:");
+scanf("%d",&n);
+printf("\nEnter the order of second array:");
+scanf("%d",&m);
+printf("\nEnter the first array elements:");
+for(i=0;i<n;i++)
+{
+scanf("%d",&a[i]);
+}
+printf("\nEnter the second array elements:");
+for(j=0;j<m;j++)
+{
+scanf("%d",&b[j]);
+}
+i=0,j=0,k=0;
+while (i<m&&j<n)
+{
+if(a[i]<b[j])
+{
+c[k]=a[i];
+i++;
+}
+else if(a[i]>b[j])
+{
+c[k]=b[j];
+j++;
+}
+else
+{
+c[k]=a[i];
+i++;
+j++;
+}
+k++;
+}
+while(i<n)
+{
+c[k]=a[i];
+i++;
+k++;
+}
+while(j<m)
+{
+c[k]=b[j];
+j++;
+k++;
+}
+printf("\nAfter merging:\n");
+for(i=0;i<m+n;i++)
+{
+printf("%d  ",c[i]);
+}
+getch();
+}
