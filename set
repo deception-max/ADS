@@ -1,0 +1,138 @@
+#include<stdio.h>
+void uni();
+void input();
+void diff();
+void inter();
+void show();
+int a[]={0,0,0,0,0,0,0,0,0,0};
+int b[]={0,0,0,0,0,0,0,0,0,0};
+int c[]={0,0,0,0,0,0,0,0,0,0};
+void main()
+ {
+  int ch;
+  clrscr();
+  do
+   {
+    printf("\n\tSet operations");
+    printf("\n\t==============");
+    printf("\n1.Input \n2.Union \n3.Intersection \n4.Difference \n5.Exit");
+    printf("\nEnter your choice:");
+    scanf("%d",&ch);
+    switch(ch)
+     {
+      case 1:input();
+      break;
+
+      case 2:uni();
+      break;
+
+      case 3:inter();
+      break;
+
+      case 4:diff();
+      break;
+
+      case 5:exit(0);
+      break;
+     }
+   }
+   while(ch!=4);
+   getch();
+}
+void input()
+{
+ int n,m,i,x;
+ printf("\nEnter the size of the first set:");
+ scanf("%d",&n);
+ printf("\nEnter the elements of the first set:");
+ for(i=0;i<n;i++)
+ {
+  scanf("%d",&x);
+  a[x]=1;
+ }
+ printf("\nEnter the size of the second set:");
+ scanf("%d",&m);
+ printf("\nEnter the elements of the second set:");
+ for(i=1;i<=m;i++)
+ {
+  scanf("%d",&x);
+  b[x]=1;
+ }
+ printf("\nThe first set is: {");
+ for(i=1;i<=9;i++)
+ {
+  printf("%d",a[i]);
+ }
+ printf("}");
+ printf("\nThe second set is: {");
+ for(i=1;i<=9;i++)
+ {
+  printf("%d",b[i]);
+ }
+ printf("}");
+}
+void show(int c[])
+ {
+   int i;
+   printf("\n{");
+   for(i=1;i<=9;i++)
+   {
+     if(c[i]!=0)
+      printf("%d",i);
+   }
+   printf("}");
+ }
+void uni()
+ {
+   int c[10],i;
+   for(i=1;i<=9;i++)
+   {
+     if(a[i]!=b[i])
+       c[i]=1;
+     else
+       c[i]=a[i];
+   }
+   printf("\nThe set is:{");
+   for(i=1;i<=9;i++)
+   {
+     printf("%d",c[i]);
+   }
+   printf("}");
+   show(c);
+ }
+void inter()
+ {
+   int c[10],i;
+   for(i=1;i<=9;i++)
+   {
+     if(a[i]==b[i])
+       c[i]=a[i];
+     else
+       c[i]=0;
+   }
+   printf("\nThe set is:{");
+   for(i=1;i<=9;i++)
+   {
+     printf("%d",c[i]);
+   }
+   printf("}");
+   show(c);
+ }
+void diff()
+{
+  int c[10],i;
+  for(i=1;i<=9;i++)
+  {
+    if(a[i]==1 && b[i]==0)
+     c[i]=1;
+    else
+      c[i]=0;
+  }
+   printf("\nThe set is:{");
+   for(i=1;i<=9;i++)
+   {
+     printf("%d",c[i]);
+   }
+   printf("}");
+   show(c);
+}
